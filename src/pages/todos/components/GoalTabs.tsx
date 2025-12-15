@@ -107,7 +107,7 @@ export default function GoalTabs({
         <div className={`relative rounded-full p-1 ${isDark ? 'bg-zinc-900' : 'bg-gray-100'}`}>
           <div className="relative flex">
             <div
-              className={`absolute bottom-1 top-1 rounded-full transition-all duration-300 ${
+              className={`absolute top-1 bottom-1 rounded-full transition-all duration-300 ${
                 isDark ? 'bg-white' : 'bg-black'
               }`}
               style={{
@@ -122,7 +122,7 @@ export default function GoalTabs({
             />
             <button
               onClick={() => handleTabClick('all')}
-              className={`relative z-10 flex-1 cursor-pointer whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`relative z-10 flex-1 cursor-pointer rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeTab === 'all'
                   ? isDark
                     ? 'text-black'
@@ -136,7 +136,7 @@ export default function GoalTabs({
             </button>
             <button
               onClick={() => handleTabClick('personal')}
-              className={`relative z-10 flex-1 cursor-pointer whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`relative z-10 flex-1 cursor-pointer rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeTab === 'personal'
                   ? isDark
                     ? 'text-black'
@@ -150,7 +150,7 @@ export default function GoalTabs({
             </button>
             <button
               onClick={() => handleTabClick('group')}
-              className={`relative z-10 flex-1 cursor-pointer whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`relative z-10 flex-1 cursor-pointer rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeTab === 'group'
                   ? isDark
                     ? 'text-black'
@@ -178,7 +178,7 @@ export default function GoalTabs({
                       onSelectGoal(goal.id)
                     }
                   }}
-                  className={`flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                     selectedGoalId === goal.id
                       ? isDark
                         ? 'bg-white text-black'
@@ -230,7 +230,7 @@ export default function GoalTabs({
 
             <button
               onClick={onAddGoal}
-              className={`cursor-pointer whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`cursor-pointer rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                 isDark
                   ? 'bg-zinc-900 text-gray-400 hover:bg-zinc-800'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -248,7 +248,7 @@ export default function GoalTabs({
     <div className="flex items-center gap-2 overflow-x-auto pb-2">
       <button
         onClick={() => onSelectGoal('all')}
-        className={`cursor-pointer whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+        className={`cursor-pointer rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
           selectedGoalId === 'all'
             ? isDark
               ? 'bg-white text-black'
@@ -272,7 +272,7 @@ export default function GoalTabs({
                 onSelectGoal(goal.id)
               }
             }}
-            className={`flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+            className={`flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
               selectedGoalId === goal.id
                 ? isDark
                   ? 'bg-white text-black'
@@ -324,19 +324,19 @@ export default function GoalTabs({
 
       <button
         onClick={() => navigate('/groups')}
-        className={`flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+        className={`flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
           isDark
             ? 'bg-zinc-900 text-gray-400 hover:bg-zinc-800'
             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
         }`}
       >
         <i className="ri-group-line flex h-4 w-4 items-center justify-center"></i>
-        그룹 목표
+        그룹 바로가기
       </button>
 
       <button
         onClick={onAddGoal}
-        className={`cursor-pointer whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+        className={`cursor-pointer rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
           isDark
             ? 'bg-zinc-900 text-gray-400 hover:bg-zinc-800'
             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'

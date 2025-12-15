@@ -52,7 +52,7 @@ interface SortableTodoItemProps {
   onEditTextChange: (text: string) => void
   onAddSubtask: (parentId: string, goalId: string) => void
   onDelete: (id: string) => void
-  renderSubtasks: (subtasks: Todo[], depth: number) => JSX.Element[]
+  renderSubtasks: (subtasks: Todo[], depth: number) => React.ReactElement[]
 }
 
 function SortableTodoItem({
@@ -228,7 +228,7 @@ function SortableTodoItem({
 
         {showGoalTags && goal && (
           <div
-            className="whitespace-nowrap rounded-md px-2 py-1 text-xs font-medium"
+            className="rounded-md px-2 py-1 text-xs font-medium whitespace-nowrap"
             style={{ backgroundColor: `${goal.color}20`, color: goal.color }}
           >
             {goal.title}
@@ -292,7 +292,7 @@ interface SortableSubtaskItemProps {
   onEditTextChange: (text: string) => void
   onAddSubtask: (parentId: string, goalId: string) => void
   onDelete: (id: string) => void
-  renderSubtasks: (subtasks: Todo[], depth: number) => JSX.Element[]
+  renderSubtasks: (subtasks: Todo[], depth: number) => React.ReactElement[]
 }
 
 function SortableSubtaskItem({
@@ -420,7 +420,7 @@ function SortableSubtaskItem({
 
         {showGoalTags && goal && (
           <div
-            className="whitespace-nowrap rounded-md px-2 py-1 text-xs font-medium"
+            className="rounded-md px-2 py-1 text-xs font-medium whitespace-nowrap"
             style={{ backgroundColor: `${goal.color}20`, color: goal.color }}
           >
             {goal.title}
@@ -596,7 +596,7 @@ export default function TodoList({
     setExpandedIds((prev) => new Set([...prev, overId]))
   }
 
-  const renderSubtasks = (subtasks: Todo[], depth: number): JSX.Element[] => {
+  const renderSubtasks = (subtasks: Todo[], depth: number): React.ReactElement[] => {
     const sortedSubtasks = [...subtasks].sort((a, b) => a.order - b.order)
 
     return sortedSubtasks.map((subtask) => {
