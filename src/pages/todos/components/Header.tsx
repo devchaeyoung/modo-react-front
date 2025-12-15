@@ -1,77 +1,76 @@
-import { useAuth } from '../../../contexts/AuthContext';
-import { useTheme } from '../../../contexts/ThemeContext';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useAuth } from '../../../contexts/AuthContext'
+import { useTheme } from '../../../contexts/ThemeContext'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Header() {
-  const { user } = useAuth();
-  const { isDark } = useTheme();
-  const navigate = useNavigate();
-  const [showMenu, setShowMenu] = useState(false);
+  const { user } = useAuth()
+  const { isDark } = useTheme()
+  const navigate = useNavigate()
+  const [showMenu, setShowMenu] = useState(false)
 
   return (
     <header className={`border-b ${isDark ? 'border-zinc-800' : 'border-gray-200'}`}>
-      <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-        <h1 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>
-          Todo
-        </h1>
+      <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
+        <h1 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>Todo</h1>
         <div className="relative">
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors cursor-pointer ${
+            className={`flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg transition-colors ${
               isDark ? 'hover:bg-zinc-800' : 'hover:bg-gray-100'
             }`}
           >
-            <i className={`ri-menu-line text-xl w-5 h-5 flex items-center justify-center ${isDark ? 'text-white' : 'text-black'}`}></i>
+            <i
+              className={`ri-menu-line flex h-5 w-5 items-center justify-center text-xl ${isDark ? 'text-white' : 'text-black'}`}
+            ></i>
           </button>
-          
+
           {showMenu && (
             <>
-              <div 
-                className="fixed inset-0 z-10"
-                onClick={() => setShowMenu(false)}
-              ></div>
-              <div className={`absolute right-0 mt-2 w-48 rounded-lg shadow-lg z-20 overflow-hidden ${
-                isDark ? 'bg-zinc-900 border border-zinc-800' : 'bg-white border border-gray-200'
-              }`}>
+              <div className="fixed inset-0 z-10" onClick={() => setShowMenu(false)}></div>
+              <div
+                className={`absolute right-0 z-20 mt-2 w-48 overflow-hidden rounded-lg shadow-lg ${
+                  isDark ? 'border border-zinc-800 bg-zinc-900' : 'border border-gray-200 bg-white'
+                }`}
+              >
                 {user && (
                   <>
                     <button
                       onClick={() => {
-                        navigate('/profile');
-                        setShowMenu(false);
+                        navigate('/profile')
+                        setShowMenu(false)
                       }}
-                      className={`w-full px-4 py-3 text-left text-sm transition-colors cursor-pointer flex items-center gap-3 ${
+                      className={`flex w-full cursor-pointer items-center gap-3 px-4 py-3 text-left text-sm transition-colors ${
                         isDark ? 'text-white hover:bg-zinc-800' : 'text-black hover:bg-gray-50'
                       }`}
                     >
-                      <i className="ri-user-line w-5 h-5 flex items-center justify-center"></i>
+                      <i className="ri-user-line flex h-5 w-5 items-center justify-center"></i>
                       프로필
                     </button>
                     <button
                       onClick={() => {
-                        navigate('/groups');
-                        setShowMenu(false);
+                        navigate('/groups')
+                        setShowMenu(false)
                       }}
-                      className={`w-full px-4 py-3 text-left text-sm transition-colors cursor-pointer flex items-center gap-3 ${
+                      className={`flex w-full cursor-pointer items-center gap-3 px-4 py-3 text-left text-sm transition-colors ${
                         isDark ? 'text-white hover:bg-zinc-800' : 'text-black hover:bg-gray-50'
                       }`}
                     >
-                      <i className="ri-group-line w-5 h-5 flex items-center justify-center"></i>
+                      <i className="ri-group-line flex h-5 w-5 items-center justify-center"></i>
                       그룹
                     </button>
                   </>
                 )}
                 <button
                   onClick={() => {
-                    navigate('/contact');
-                    setShowMenu(false);
+                    navigate('/contact')
+                    setShowMenu(false)
                   }}
-                  className={`w-full px-4 py-3 text-left text-sm transition-colors cursor-pointer flex items-center gap-3 ${
+                  className={`flex w-full cursor-pointer items-center gap-3 px-4 py-3 text-left text-sm transition-colors ${
                     isDark ? 'text-white hover:bg-zinc-800' : 'text-black hover:bg-gray-50'
                   }`}
                 >
-                  <i className="ri-mail-line w-5 h-5 flex items-center justify-center"></i>
+                  <i className="ri-mail-line flex h-5 w-5 items-center justify-center"></i>
                   문의하기
                 </button>
               </div>
@@ -80,5 +79,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
