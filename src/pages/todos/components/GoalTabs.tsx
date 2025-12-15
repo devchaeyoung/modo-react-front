@@ -1,4 +1,4 @@
-import { useTheme } from '../../../contexts/ThemeContext'
+import { useThemeStore, selectIsDark } from 'entities/theme'
 import { Goal } from '../../../types'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
@@ -20,7 +20,7 @@ export default function GoalTabs({
   onEditGoal,
   onDeleteGoal,
 }: GoalTabsProps) {
-  const { isDark } = useTheme()
+  const isDark = useThemeStore(selectIsDark)
   const navigate = useNavigate()
   const [isMobile, setIsMobile] = useState(false)
   const [activeTab, setActiveTab] = useState<'all' | 'personal' | 'group'>('all')

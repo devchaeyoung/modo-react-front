@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useTheme } from '../../../contexts/ThemeContext'
+import { useThemeStore, selectIsDark } from 'entities/theme'
 import { Todo, Goal } from '../../../types'
 import {
   DndContext,
@@ -471,7 +471,7 @@ export default function TodoList({
   onReorder,
   showGoalTags = true,
 }: TodoListProps) {
-  const { isDark } = useTheme()
+  const isDark = useThemeStore(selectIsDark)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editText, setEditText] = useState('')
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())

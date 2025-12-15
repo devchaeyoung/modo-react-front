@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useTheme } from '../../../contexts/ThemeContext'
+import { useThemeStore, selectIsDark } from 'entities/theme'
 import { Goal } from '../../../types'
 
 interface AddTodoModalProps {
@@ -17,7 +17,7 @@ export default function AddTodoModal({
   defaultGoalId,
   isSubtask,
 }: AddTodoModalProps) {
-  const { isDark } = useTheme()
+  const isDark = useThemeStore(selectIsDark)
   const [title, setTitle] = useState('')
   const [selectedGoalId, setSelectedGoalId] = useState(defaultGoalId || goals[0]?.id || '')
 

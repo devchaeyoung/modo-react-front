@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useTheme } from '../../../contexts/ThemeContext'
+import { useThemeStore, selectIsDark } from 'entities/theme'
 import { Goal } from '../../../types'
 
 interface AddGoalModalProps {
@@ -31,7 +31,7 @@ const ICONS = [
 ]
 
 export default function AddGoalModal({ onClose, onAdd, editingGoal }: AddGoalModalProps) {
-  const { isDark } = useTheme()
+  const isDark = useThemeStore(selectIsDark)
   const [title, setTitle] = useState('')
   const [selectedColor, setSelectedColor] = useState(COLORS[0].value)
   const [selectedIcon, setSelectedIcon] = useState(ICONS[0].value)

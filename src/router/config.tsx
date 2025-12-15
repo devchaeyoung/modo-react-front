@@ -6,6 +6,7 @@ import Todos from '../pages/todos/page'
 import Profile from '../pages/profile/page'
 import Groups from '../pages/groups/page'
 import Contact from '../pages/contact/page'
+import TestComponents from '../pages/test-components/page'
 import NotFound from '../pages/NotFound'
 
 const routes: RouteObject[] = [
@@ -32,6 +33,10 @@ const routes: RouteObject[] = [
   {
     path: '/contact',
     element: <Contact />,
+  },
+  {
+    path: '/test-components',
+    element: <TestComponents />,
   },
   {
     path: '*',
