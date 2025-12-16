@@ -7,11 +7,9 @@ import { useEffect } from 'react'
 import { useThemeStore } from 'entities/theme'
 
 function App() {
-  // Theme 초기화 (Zustand persist가 자동으로 처리)
   const theme = useThemeStore((state) => state.theme)
 
   useEffect(() => {
-    // 초기 테마 설정 (persist에서 자동 복원)
     const isDark = useThemeStore.getState().isDark
     document.documentElement.classList.toggle('dark', isDark)
   }, [])

@@ -42,9 +42,7 @@ export default function Auth() {
             alt="Logo"
             className="mx-auto mb-4 h-16 w-16"
           />
-          <h1 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>
-            To do list
-          </h1>
+          <h1 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>MODO</h1>
           <p className={`mt-2 text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
             {isLogin ? '로그인하여 시작하세요' : '회원가입하여 시작하세요'}
           </p>
@@ -67,7 +65,7 @@ export default function Auth() {
                     isDark
                       ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                       : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                  } outline-none transition-colors`}
+                  } transition-colors outline-none`}
                   placeholder="이름을 입력하세요"
                   required
                 />
@@ -88,7 +86,7 @@ export default function Auth() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
                 placeholder="이메일을 입력하세요"
                 required
               />
@@ -108,7 +106,7 @@ export default function Auth() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
                 placeholder="비밀번호를 입력하세요"
                 required
               />
@@ -116,7 +114,7 @@ export default function Auth() {
 
             <button
               type="submit"
-              className={`w-full whitespace-nowrap rounded-lg py-3 text-sm font-medium transition-colors ${
+              className={`w-full rounded-lg py-3 text-sm font-medium whitespace-nowrap transition-colors ${
                 isDark
                   ? 'bg-white text-black hover:bg-gray-100'
                   : 'bg-black text-white hover:bg-gray-900'
@@ -129,7 +127,7 @@ export default function Auth() {
           <div className="mt-4">
             <button
               onClick={handleGuestMode}
-              className={`w-full whitespace-nowrap rounded-lg py-3 text-sm font-medium transition-colors ${
+              className={`w-full rounded-lg py-3 text-sm font-medium whitespace-nowrap transition-colors ${
                 isDark
                   ? 'bg-zinc-800 text-white hover:bg-zinc-700'
                   : 'bg-gray-200 text-black hover:bg-gray-300'

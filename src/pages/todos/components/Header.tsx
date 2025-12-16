@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className={`border-b ${isDark ? 'border-zinc-800' : 'border-gray-200'}`}>
       <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-        <h1 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>Todo</h1>
+        <h1 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>MODO</h1>
         <div className="relative">
           <button
             onClick={() => setShowMenu(!showMenu)}
