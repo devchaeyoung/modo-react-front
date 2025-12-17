@@ -4,14 +4,6 @@ export const validators = {
     return emailRegex.test(value)
   },
 
-  minLength: (value: string, min: number): boolean => {
-    return value.length >= min
-  },
-
-  maxLength: (value: string, max: number): boolean => {
-    return value.length <= max
-  },
-
   password: (value: string): boolean => {
     return value.length >= 8
   },
@@ -24,7 +16,8 @@ export const validators = {
     return value.trim().length > 0
   },
 
-  passwordMatch: (password: string, confirmPassword: string): boolean => {
-    return password === confirmPassword
+  alphanumeric: (value: string): boolean => {
+    const alphanumericRegex = /^[a-zA-Z0-9_.-]+$/
+    return alphanumericRegex.test(value)
   },
 }

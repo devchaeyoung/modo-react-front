@@ -10,7 +10,7 @@ interface ValidationErrors {
   nickname?: string
 }
 
-export function useAuthValidation() {
+export const useAuthValidation = () => {
   const { i18n } = useTranslation()
   const [errors, setErrors] = useState<ValidationErrors>({})
 
@@ -20,6 +20,9 @@ export function useAuthValidation() {
   const validateUsername = (value: string): string | undefined => {
     if (!validators.required(value)) {
       return messages.username.required
+    }
+    if (!validators.alphanumeric(value)) {
+      return messages.username.alphanumeric
     }
     return undefined
   }
@@ -44,16 +47,6 @@ export function useAuthValidation() {
     return undefined
   }
 
-  const validateConfirmPassword = (password: string, confirmPassword: string): string | undefined => {
-    if (!validators.required(confirmPassword)) {
-      return messages.password.required
-    }
-    if (!validators.passwordMatch(password, confirmPassword)) {
-      return messages.password.notMatch
-    }
-    return undefined
-  }
-
   const validateNickname = (value: string): string | undefined => {
     if (!validators.required(value)) {
       return messages.nickname.required
@@ -68,7 +61,6 @@ export function useAuthValidation() {
     username: string
     email: string
     password: string
-    confirmPassword: string
     nickname: string
   }): boolean => {
     const newErrors: ValidationErrors = {}
@@ -81,9 +73,6 @@ export function useAuthValidation() {
 
     const passwordError = validatePassword(data.password)
     if (passwordError) newErrors.password = passwordError
-
-    const confirmPasswordError = validateConfirmPassword(data.password, data.confirmPassword)
-    if (confirmPasswordError) newErrors.confirmPassword = confirmPasswordError
 
     const nicknameError = validateNickname(data.nickname)
     if (nicknameError) newErrors.nickname = nicknameError
@@ -113,16 +102,24 @@ export function useAuthValidation() {
     })
   }
 
-  const clearAllErrors = () => {
-    setErrors({})
+  const setError = (field: keyof ValidationErrors, message: string) => {
+    setErrors((prev) => ({
+      ...prev,
+      [field]: message,
+    }))
   }
 
   return {
     errors,
+    validators: {
+      username: validateUsername,
+      email: validateEmail,
+      password: validatePassword,
+      nickname: validateNickname,
+    },
     validateSignupForm,
     validateLoginForm,
     clearError,
-    clearAllErrors,
+    setError,
   }
 }
-

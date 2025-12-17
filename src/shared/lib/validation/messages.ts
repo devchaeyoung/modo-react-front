@@ -15,6 +15,7 @@ export const validationMessages = {
     },
     username: {
       required: '아이디를 입력하세요',
+      alphanumeric: '아이디는 영어, 숫자, _, ., - 만 입력 가능합니다',
     },
   },
   en: {
@@ -33,6 +34,7 @@ export const validationMessages = {
     },
     username: {
       required: 'Please enter your username',
+      alphanumeric: 'Username can only contain letters, numbers, _, ., -',
     },
   },
 }

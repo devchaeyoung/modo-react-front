@@ -30,18 +30,13 @@ export const buildEndpoint = (...parts: (string | number)[]) => {
   return parts.map((p) => String(p).replace(/^\/|\/$/g, '')).join('/')
 }
 
-/**
- * 인증 관련 스토리지 통합 관리
- */
 export const authStorage = {
-  // 토큰 관리
   token: {
     get: () => localStorage.getItem('auth_token'),
     set: (token: string) => localStorage.setItem('auth_token', token),
     clear: () => localStorage.removeItem('auth_token'),
   },
 
-  // 사용자 정보 관리
   user: {
     get: () => {
       const data = localStorage.getItem('user')
@@ -58,14 +53,12 @@ export const authStorage = {
     clear: () => localStorage.removeItem('user'),
   },
 
-  // 게스트 모드
   guest: {
     get: () => localStorage.getItem('guestMode') === 'true',
     set: () => localStorage.setItem('guestMode', 'true'),
     clear: () => localStorage.removeItem('guestMode'),
   },
 
-  // 전체 인증 데이터 클리어 (로그아웃용)
   clearAll: () => {
     localStorage.removeItem('auth_token')
     localStorage.removeItem('user')
@@ -73,5 +66,4 @@ export const authStorage = {
   },
 }
 
-// 하위 호환성을 위한 별칭
 export const tokenManager = authStorage.token
