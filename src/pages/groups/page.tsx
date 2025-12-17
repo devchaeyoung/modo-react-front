@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTodos } from '../../hooks/useTodos'
 import { StudyGroup } from '../../types'
 
-export default function Groups() {
+export const GroupsPage = () => {
   const { user } = useAuthStatus()
   const isDark = useThemeStore(selectIsDark)
   const navigate = useNavigate()

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { useThemeStore, selectIsDark } from 'entities/theme'
 import { useAuthForm } from 'entities/auth'
 
-export default function Auth() {
+export const AuthPage = () => {
   const { t, i18n } = useTranslation()
   const isDark = useThemeStore(selectIsDark)
 

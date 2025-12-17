@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import { useThemeStore, selectIsDark } from 'entities/theme'
 import { useAuthStatus } from 'entities/auth'
-import { useTodos } from '../../hooks/useTodos'
-import TodoList from './components/TodoList'
-import GoalTabs from './components/GoalTabs'
-import Header from './components/Header'
-import AddTodoModal from './components/AddTodoModal'
-import { AddGoalModal } from 'features/goal/add-goal'
-import { Goal } from '../../types'
+import { useTodos } from '@/hooks/useTodos'
+import TodoList from '@/pages/todos/components/TodoList'
+import GoalTabs from '@/pages/todos/components/GoalTabs'
+import Header from '@/pages/todos/components/Header'
+import AddTodoModal from '@/pages/todos/components/AddTodoModal'
+import { AddGoalModal } from '@/features/goal/add-goal'
+import { Goal } from '@/types'
 
-export default function Todos() {
+export const TodosPage = () => {
   const { user, isGuest } = useAuthStatus()
   const isDark = useThemeStore(selectIsDark)
   const {

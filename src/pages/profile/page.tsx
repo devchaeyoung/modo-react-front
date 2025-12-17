@@ -3,7 +3,7 @@ import { useThemeStore, selectIsDark } from 'entities/theme'
 import { useAuthStatus, useLogout } from 'entities/auth'
 import { useNavigate } from 'react-router-dom'
 
-export default function Profile() {
+export const ProfilePage = () => {
   const { user } = useAuthStatus()
   const { mutate: logout } = useLogout()
   const isDark = useThemeStore(selectIsDark)
@@ -93,7 +93,7 @@ export default function Profile() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
               />
             </div>
 
@@ -113,7 +113,7 @@ export default function Profile() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
               />
             </div>
 
@@ -138,7 +138,7 @@ export default function Profile() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full whitespace-nowrap rounded-lg py-3 text-sm font-medium transition-colors ${
+              className={`w-full rounded-lg py-3 text-sm font-medium whitespace-nowrap transition-colors ${
                 isSubmitting ? 'cursor-not-allowed opacity-50' : ''
               } ${
                 isDark
@@ -155,10 +155,10 @@ export default function Profile() {
                 logout(undefined, {
                   onSuccess: () => {
                     navigate('/')
-                  }
+                  },
                 })
               }}
-              className={`w-full whitespace-nowrap rounded-lg py-3 text-sm font-medium transition-colors ${
+              className={`w-full rounded-lg py-3 text-sm font-medium whitespace-nowrap transition-colors ${
                 isDark
                   ? 'bg-zinc-800 text-red-400 hover:bg-zinc-700'
                   : 'bg-gray-200 text-red-600 hover:bg-gray-300'

@@ -1,46 +1,38 @@
 import type { RouteObject } from 'react-router-dom'
-import { lazy } from 'react'
-import Home from '../pages/home/page'
-import Auth from '../pages/auth/page'
-import Todos from '../pages/todos/page'
-import Profile from '../pages/profile/page'
-import Groups from '../pages/groups/page'
-import Contact from '../pages/contact/page'
-import TestComponents from '../pages/test-components/page'
-import NotFound from '../pages/NotFound'
+import * as pages from '@/pages'
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Home />,
+    element: <pages.HomePage />,
   },
   {
     path: '/auth',
-    element: <Auth />,
+    element: <pages.AuthPage />,
   },
   {
     path: '/todos',
-    element: <Todos />,
+    element: <pages.TodosPage />,
   },
   {
     path: '/profile',
-    element: <Profile />,
+    element: <pages.ProfilePage />,
   },
   {
     path: '/groups',
-    element: <Groups />,
+    element: <pages.GroupsPage />,
   },
   {
     path: '/contact',
-    element: <Contact />,
+    element: <pages.ContactPage />,
   },
   {
     path: '/test-components',
-    element: <TestComponents />,
+    element: <pages.TestComponentsPage />,
   },
   {
     path: '*',
-    element: <NotFound />,
+    element: <pages.NotFoundPage />,
   },
 ]
 

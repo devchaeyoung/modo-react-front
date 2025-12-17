@@ -8,7 +8,7 @@ import { COLORS, ICONS } from 'shared/constants'
 import { cn } from 'shared/lib/styles/cn'
 import { themeClasses } from 'shared/lib/styles/theme'
 
-export default function TestComponentsPage() {
+export const TestComponentsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [selectedColor, setSelectedColor] = useState<string>(COLORS[0].value)

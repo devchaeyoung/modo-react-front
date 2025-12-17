@@ -1,4 +1,4 @@
-export default function Home() {
+export const HomePage = () => {
   return (
     // This is the template home page, please edit from this page
     <div className="relative flex h-screen flex-col items-center justify-center px-4 text-center">

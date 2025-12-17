@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useThemeStore, selectIsDark } from 'entities/theme'
 import { useNavigate } from 'react-router-dom'
 
-export default function Contact() {
+export const ContactPage = () => {
   const isDark = useThemeStore(selectIsDark)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -108,7 +108,7 @@ export default function Contact() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
                 placeholder="홍길동"
               />
             </div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
                 placeholder="example@email.com"
               />
             </div>
@@ -150,7 +150,7 @@ export default function Contact() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
                 placeholder="문의 제목을 입력하세요"
               />
             </div>
@@ -172,7 +172,7 @@ export default function Contact() {
                   isDark
                     ? 'border border-zinc-800 bg-black text-white focus:border-zinc-700'
                     : 'border border-gray-200 bg-white text-black focus:border-gray-300'
-                } outline-none transition-colors`}
+                } transition-colors outline-none`}
                 placeholder="문의 내용을 입력하세요 (최대 500자)"
               />
               <div
@@ -201,7 +201,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full whitespace-nowrap rounded-lg py-3 text-sm font-medium transition-colors ${
+              className={`w-full rounded-lg py-3 text-sm font-medium whitespace-nowrap transition-colors ${
                 isSubmitting ? 'cursor-not-allowed opacity-50' : ''
               } ${
                 isDark
