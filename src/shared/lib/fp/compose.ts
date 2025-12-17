@@ -6,4 +6,3 @@ export const compose =
   <T>(...fns: Array<(arg: T) => T>) =>
   (value: T): T =>
     fns.reduceRight((acc, fn) => fn(acc), value)
-
